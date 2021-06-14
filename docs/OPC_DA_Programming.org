@@ -1,0 +1,11 @@
+#+TITLE: OPC DA Programming
+
+* Overview
+
+The Custom Interface Objects include mainly two objects
+
+- =OPCServer=
+
+- =OPCGroup=
+
+If therror result is any FAILED error, the OPC server should return =NULL= for all =out= pointer (Standard COM behavior). =NULL= pointer cannot be passed in due to COM marshalling restrictions. =NULL= in-argument is ignored. =size_is(,dwCount)= indicated an actual array of the indicated type, instead of a pointer to an array of pointers.
