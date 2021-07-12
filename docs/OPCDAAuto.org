@@ -1,0 +1,34 @@
+#+TITLE: Opcda Auto
+
+Nearly all of the functionality of the required and optional interfaces in the OPC Data Custom interface.
+
+* Object Models
+
+#+begin_src
+┌──────────────────────────────────────────────────────┐
+│                                                      │
+│                      OPCServer                       │
+│                                                      │
+└─────────┬────────────────────────────────────┬───────┘
+          │                                    │
+          │                                    │
+    ┌─────▼─────┐                              │
+    │ OPCGroups │                       ┌──────▼────────┐
+    └─────────┬─┘                       │ OPCBrowser    │
+              │                         └───────────────┘
+          ┌───▼───────┐
+          │ OPCGroup  │
+          └────────┬──┘
+                   │
+               ┌───▼──────────┐
+               │  OPCItems    │
+               └──────────┬───┘
+                          │
+                      ┌───▼──────┐
+                      │ OPCItem  │
+                      └──────────┘
+#+end_src
+
+An OPCDAAuto client connects to an OPCDAAuto Server which in turns communicates to the underlying OPCDA Custom Servers. The =OPCServer= maintains a =OPCGroups=, which contains a group of =OPCGroup=, which maintains a collection (=OPCItems=) of OPC items (=OPCItem=). An OPCGroup can be activated and deactivated as a unit.
+
+A data point's value, quality and timestamp are kept in sync.
